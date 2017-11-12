@@ -5,13 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>yo.antihype.team</groupId>
-    <artifactId>places-to-visit</artifactId>
+    <artifactId>mobile</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
 
-    <modules>
-        <module>web</module>
-        <module>mobile</module>
-    </modules>
+    <packaging>xcode-app</packaging>
 
+    
 </project>
