@@ -23,8 +23,7 @@ var port = process.env.PORT || 9000; // set our port
 // =============================================================================
 var routerApi = express.Router();
 var router    = express.Router();
-require('./routes/client.js')(app,router);
-
+require('./js/client.js')(app,router);
 
 // START THE SERVER
 // =============================================================================
