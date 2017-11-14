@@ -45,10 +45,10 @@
 		10FD328A5D06F68DCD5A1DC9 /* Pods-Places To Visit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Places To Visit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Places To Visit/Pods-Places To Visit.debug.xcconfig"; sourceTree = "<group>"; };
 		589A7662D4DE3F8E1407E233 /* Pods_Places_To_Visit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Places_To_Visit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		62755D3298358C98D25AB4F6 /* Pods-Places To Visit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Places To Visit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Places To Visit/Pods-Places To Visit.release.xcconfig"; sourceTree = "<group>"; };
-		A8E9F4441FBBA06D00DFDA01 /* Places To Visit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Places To Visit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8E9F45B1FBBA06D00DFDA01 /* Places To VisitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Places To VisitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8E9F4441FBBA06D00DFDA01 /* PlacesToVisit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlacesToVisit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8E9F45B1FBBA06D00DFDA01 /* PlacesToVisitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesToVisitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E9F4611FBBA06D00DFDA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A8E9F4661FBBA06D00DFDA01 /* Places To VisitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Places To VisitUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8E9F4661FBBA06D00DFDA01 /* PlacesToVisitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesToVisitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8E9F46A1FBBA06D00DFDA01 /* Places_To_VisitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places_To_VisitUITests.swift; sourceTree = "<group>"; };
 		A8E9F46C1FBBA06D00DFDA01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A8E9F47A1FBBA52E00DFDA01 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,9 +118,9 @@
 		A8E9F4451FBBA06D00DFDA01 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A8E9F4441FBBA06D00DFDA01 /* Places To Visit.app */,
-				A8E9F45B1FBBA06D00DFDA01 /* Places To VisitTests.xctest */,
-				A8E9F4661FBBA06D00DFDA01 /* Places To VisitUITests.xctest */,
+				A8E9F4441FBBA06D00DFDA01 /* PlacesToVisit.app */,
+				A8E9F45B1FBBA06D00DFDA01 /* PlacesToVisitTests.xctest */,
+				A8E9F4661FBBA06D00DFDA01 /* PlacesToVisitUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -215,9 +215,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A8E9F4431FBBA06D00DFDA01 /* Places To Visit */ = {
+		A8E9F4431FBBA06D00DFDA01 /* PlacesToVisit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8E9F46F1FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "Places To Visit" */;
+			buildConfigurationList = A8E9F46F1FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "PlacesToVisit" */;
 			buildPhases = (
 				7A34C7002FA0B9D373F23299 /* [CP] Check Pods Manifest.lock */,
 				A8E9F4401FBBA06D00DFDA01 /* Sources */,
@@ -231,14 +231,14 @@
 			);
 			dependencies = (
 			);
-			name = "Places To Visit";
+			name = PlacesToVisit;
 			productName = "Places To Visit";
-			productReference = A8E9F4441FBBA06D00DFDA01 /* Places To Visit.app */;
+			productReference = A8E9F4441FBBA06D00DFDA01 /* PlacesToVisit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A8E9F45A1FBBA06D00DFDA01 /* Places To VisitTests */ = {
+		A8E9F45A1FBBA06D00DFDA01 /* PlacesToVisitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8E9F4721FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "Places To VisitTests" */;
+			buildConfigurationList = A8E9F4721FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "PlacesToVisitTests" */;
 			buildPhases = (
 				A8E9F4571FBBA06D00DFDA01 /* Sources */,
 				A8E9F4581FBBA06D00DFDA01 /* Frameworks */,
@@ -249,14 +249,14 @@
 			dependencies = (
 				A8E9F45D1FBBA06D00DFDA01 /* PBXTargetDependency */,
 			);
-			name = "Places To VisitTests";
+			name = PlacesToVisitTests;
 			productName = "Places To VisitTests";
-			productReference = A8E9F45B1FBBA06D00DFDA01 /* Places To VisitTests.xctest */;
+			productReference = A8E9F45B1FBBA06D00DFDA01 /* PlacesToVisitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		A8E9F4651FBBA06D00DFDA01 /* Places To VisitUITests */ = {
+		A8E9F4651FBBA06D00DFDA01 /* PlacesToVisitUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A8E9F4751FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "Places To VisitUITests" */;
+			buildConfigurationList = A8E9F4751FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "PlacesToVisitUITests" */;
 			buildPhases = (
 				A8E9F4621FBBA06D00DFDA01 /* Sources */,
 				A8E9F4631FBBA06D00DFDA01 /* Frameworks */,
@@ -267,9 +267,9 @@
 			dependencies = (
 				A8E9F4681FBBA06D00DFDA01 /* PBXTargetDependency */,
 			);
-			name = "Places To VisitUITests";
+			name = PlacesToVisitUITests;
 			productName = "Places To VisitUITests";
-			productReference = A8E9F4661FBBA06D00DFDA01 /* Places To VisitUITests.xctest */;
+			productReference = A8E9F4661FBBA06D00DFDA01 /* PlacesToVisitUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -298,7 +298,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A8E9F43F1FBBA06D00DFDA01 /* Build configuration list for PBXProject "Places To Visit" */;
+			buildConfigurationList = A8E9F43F1FBBA06D00DFDA01 /* Build configuration list for PBXProject "PlacesToVisit" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -311,9 +311,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A8E9F4431FBBA06D00DFDA01 /* Places To Visit */,
-				A8E9F45A1FBBA06D00DFDA01 /* Places To VisitTests */,
-				A8E9F4651FBBA06D00DFDA01 /* Places To VisitUITests */,
+				A8E9F4431FBBA06D00DFDA01 /* PlacesToVisit */,
+				A8E9F45A1FBBA06D00DFDA01 /* PlacesToVisitTests */,
+				A8E9F4651FBBA06D00DFDA01 /* PlacesToVisitUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -447,12 +447,12 @@
 /* Begin PBXTargetDependency section */
 		A8E9F45D1FBBA06D00DFDA01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A8E9F4431FBBA06D00DFDA01 /* Places To Visit */;
+			target = A8E9F4431FBBA06D00DFDA01 /* PlacesToVisit */;
 			targetProxy = A8E9F45C1FBBA06D00DFDA01 /* PBXContainerItemProxy */;
 		};
 		A8E9F4681FBBA06D00DFDA01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A8E9F4431FBBA06D00DFDA01 /* Places To Visit */;
+			target = A8E9F4431FBBA06D00DFDA01 /* PlacesToVisit */;
 			targetProxy = A8E9F4671FBBA06D00DFDA01 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -633,7 +633,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Places To Visit.app/Places To Visit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlacesToVisit.app/PlacesToVisit";
 			};
 			name = Debug;
 		};
@@ -650,7 +650,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Places To Visit.app/Places To Visit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlacesToVisit.app/PlacesToVisit";
 			};
 			name = Release;
 		};
@@ -689,7 +689,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A8E9F43F1FBBA06D00DFDA01 /* Build configuration list for PBXProject "Places To Visit" */ = {
+		A8E9F43F1FBBA06D00DFDA01 /* Build configuration list for PBXProject "PlacesToVisit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8E9F46D1FBBA06E00DFDA01 /* Debug */,
@@ -698,7 +698,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A8E9F46F1FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "Places To Visit" */ = {
+		A8E9F46F1FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "PlacesToVisit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8E9F4701FBBA06E00DFDA01 /* Debug */,
@@ -707,7 +707,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A8E9F4721FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "Places To VisitTests" */ = {
+		A8E9F4721FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "PlacesToVisitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8E9F4731FBBA06E00DFDA01 /* Debug */,
@@ -716,7 +716,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A8E9F4751FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "Places To VisitUITests" */ = {
+		A8E9F4751FBBA06E00DFDA01 /* Build configuration list for PBXNativeTarget "PlacesToVisitUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A8E9F4761FBBA06E00DFDA01 /* Debug */,
