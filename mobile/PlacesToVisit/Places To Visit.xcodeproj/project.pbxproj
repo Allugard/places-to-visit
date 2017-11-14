@@ -19,6 +19,8 @@
 		A8E9F4951FBBA6C500DFDA01 /* DataPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9F4941FBBA6C500DFDA01 /* DataPresenter.swift */; };
 		A8E9F4981FBBA7EB00DFDA01 /* Mockable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9F4971FBBA7EB00DFDA01 /* Mockable.generated.swift */; };
 		A8E9F49A1FBBA81E00DFDA01 /* StuffHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9F4991FBBA81E00DFDA01 /* StuffHandlerTests.swift */; };
+		A8E9F49C1FBBAA1F00DFDA01 /* StuffCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9F49B1FBBAA1F00DFDA01 /* StuffCalculator.swift */; };
+		A8E9F49E1FBBAA4C00DFDA01 /* StuffCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9F49D1FBBAA4C00DFDA01 /* StuffCalculatorTests.swift */; };
 		E675ED7D4E04BF3752E5BF0A /* Pods_Places_To_Visit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 589A7662D4DE3F8E1407E233 /* Pods_Places_To_Visit.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		A8E9F4941FBBA6C500DFDA01 /* DataPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPresenter.swift; sourceTree = "<group>"; };
 		A8E9F4971FBBA7EB00DFDA01 /* Mockable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mockable.generated.swift; sourceTree = "<group>"; };
 		A8E9F4991FBBA81E00DFDA01 /* StuffHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuffHandlerTests.swift; sourceTree = "<group>"; };
+		A8E9F49B1FBBAA1F00DFDA01 /* StuffCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuffCalculator.swift; sourceTree = "<group>"; };
+		A8E9F49D1FBBAA4C00DFDA01 /* StuffCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StuffCalculatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 				A8E9F4991FBBA81E00DFDA01 /* StuffHandlerTests.swift */,
 				A8E9F4961FBBA7EB00DFDA01 /* Generated */,
 				A8E9F4611FBBA06D00DFDA01 /* Info.plist */,
+				A8E9F49D1FBBAA4C00DFDA01 /* StuffCalculatorTests.swift */,
 			);
 			path = "Places To VisitTests";
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				A8E9F4901FBBA69D00DFDA01 /* StuffHandler.swift */,
 				A8E9F4921FBBA6B300DFDA01 /* InputDataProvider.swift */,
 				A8E9F4941FBBA6C500DFDA01 /* DataPresenter.swift */,
+				A8E9F49B1FBBAA1F00DFDA01 /* StuffCalculator.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8E9F4871FBBA52F00DFDA01 /* AppDelegate.swift in Sources */,
+				A8E9F49C1FBBAA1F00DFDA01 /* StuffCalculator.swift in Sources */,
 				A8E9F4931FBBA6B300DFDA01 /* InputDataProvider.swift in Sources */,
 				A8E9F48F1FBBA64900DFDA01 /* Mockable.swift in Sources */,
 				A8E9F4861FBBA52F00DFDA01 /* ViewController.swift in Sources */,
@@ -423,6 +430,7 @@
 			files = (
 				A8E9F49A1FBBA81E00DFDA01 /* StuffHandlerTests.swift in Sources */,
 				A8E9F4981FBBA7EB00DFDA01 /* Mockable.generated.swift in Sources */,
+				A8E9F49E1FBBAA4C00DFDA01 /* StuffCalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
