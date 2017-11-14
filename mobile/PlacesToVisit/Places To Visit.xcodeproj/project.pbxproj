@@ -138,10 +138,10 @@
 		A8E9F45E1FBBA06D00DFDA01 /* Places To VisitTests */ = {
 			isa = PBXGroup;
 			children = (
-				A8E9F4991FBBA81E00DFDA01 /* StuffHandlerTests.swift */,
 				A8E9F4961FBBA7EB00DFDA01 /* Generated */,
-				A8E9F4611FBBA06D00DFDA01 /* Info.plist */,
+				A8E9F4991FBBA81E00DFDA01 /* StuffHandlerTests.swift */,
 				A8E9F49D1FBBAA4C00DFDA01 /* StuffCalculatorTests.swift */,
+				A8E9F4611FBBA06D00DFDA01 /* Info.plist */,
 			);
 			path = "Places To VisitTests";
 			sourceTree = "<group>";
