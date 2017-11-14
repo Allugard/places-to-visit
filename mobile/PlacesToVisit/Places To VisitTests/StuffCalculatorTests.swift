@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Places_To_Visit
+@testable import PlacesToVisit
 
 class StuffCalculatorTests: XCTestCase {
     private let instance = StuffCalculator()

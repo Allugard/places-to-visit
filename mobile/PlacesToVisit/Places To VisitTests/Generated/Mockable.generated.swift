@@ -2,7 +2,7 @@
 // DO NOT EDIT
 
 import XCTest
-@testable import Places_To_Visit
+@testable import PlacesToVisit
 
 class DataPresenterMock: DataPresenter {
 
