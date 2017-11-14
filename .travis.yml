@@ -1,4 +1,4 @@
-language: java
+language: swift
 osx_image: xcode8.3
 os: osx
 
