@@ -1,0 +1,108 @@
+import XCTest
+@testable import Places_To_Visit
+{% macro swiftifyMethodName method %}{{ method.selectorName | replace:"(","_" | replace:")","" | replace:":","_" | replace:"`","" | snakeToCamelCase | lowerFirstWord }}{% if method.parameters.count > 0 %}_{% for parameter in method.parameters %}{{ parameter.name }}_{{ parameter.typeName | replace:".","_" | replace:"?","_" | replace:"@escaping ",""}}{% endfor %}{% endif %}{% endmacro %}
+{% macro swiftifyUpperMethodName method %}{{ method.selectorName | replace:"(","_" | replace:")","" | replace:":","_" | replace:"`","" | snakeToCamelCase | lowerFirstWord | upperFirst }}{% if method.parameters.count > 0 %}_{% for parameter in method.parameters %}{{ parameter.name }}_{{ parameter.typeName | replace:".","_" | replace:"?","_" | replace:"@escaping ",""}}{% endfor %}{% endif %}{% endmacro %}
+
+{% for type in types.based.Mockable %}
+{% if type.implements.Mockable %}
+{% if not type.name == "Mockable" %}
+class {{ type.name }}Mock: {{ type.name }} {
+    {% for method in type.allMethods %}
+    {% if not method.isInitializer %}
+
+    fileprivate var {% call swiftifyMethodName method %}_called = false
+    fileprivate var {% call swiftifyMethodName method %}_then: (({% if not method.parameters.count == 0 %}{% for param in method.parameters %}{{ param.typeName.unwrappedTypeName }}?{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}) -> {{ method.returnTypeName }})?
+    {% for parameter in method.parameters %}
+    fileprivate var {% call swiftifyMethodName method %}_{{ parameter.name }}_received: {{ parameter.typeName | replace:"@escaping ",""}}?
+    {% endfor %}
+
+    override func {{ method.name }}{% if not method.returnTypeName.isVoid %} -> {{ method.returnTypeName }}{% endif %} {
+        self.{% call swiftifyMethodName method %}_called = true
+        {% for parameter in method.parameters %}
+        self.{% call swiftifyMethodName method %}_{{ parameter.name }}_received = {{ parameter.name }}
+        {% endfor %}
+        {% if not method.returnTypeName.isVoid %}return {% endif %}self.{% call swiftifyMethodName method %}_then?({% if not method.parameters.count == 0 %}{% for param in method.parameters %}{{ param.name }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}) {% if not method.returnTypeName.isVoid %}?? super.{{ method.name }} {% endif %}
+    }
+    {% endif %}
+    {% endfor %}
+}
+
+class Verify{{ type.name }}Mock {
+    private let object: {{ type.name }}Mock
+
+    init(object: {{ type.name }}Mock) {
+        self.object = object
+    }
+    {% for method in type.allMethods %}
+    {% if not method.isInitializer %}
+    {% if method.parameters.count > 0 %}
+
+    class Verify{{ type.name }}{% call swiftifyUpperMethodName method %} {
+        private let object: {{ type.name }}Mock
+
+        init(object: {{ type.name }}Mock) {
+            self.object = object
+        }
+        {% for parameter in method.parameters %}
+
+        @discardableResult func {{ parameter.name }}(_ value: {{ parameter.typeName }}) -> Verify{{ type.name }}{% call swiftifyUpperMethodName method %} {
+            XCTAssertEqual(self.object.{% call swiftifyMethodName method %}_{{ parameter.name }}_received, value, "expected {{ parameter.name }} to be \(value)")
+            return self
+        }
+        {% endfor %}
+    }
+
+    @discardableResult func {% call swiftifyMethodName method %}() -> Verify{{ type.name }}{% call swiftifyUpperMethodName method %} {
+        XCTAssertTrue(self.object.{% call swiftifyMethodName method %}_called, "expected {{ method.shortName }} to be called")
+        return Verify{{ type.name }}{% call swiftifyUpperMethodName method %}(object: self.object)
+    }
+    {% endif %}
+    {% if method.parameters.count == 0 %}
+
+    func {% call swiftifyMethodName method %}() {
+        XCTAssertTrue(self.object.{% call swiftifyMethodName method %}_called, "expected {{ method.shortName }} to be called")
+    }
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+}
+
+func verify(_ object: {{ type.name }}Mock) -> Verify{{ type.name }}Mock {
+    return Verify{{ type.name }}Mock(object: object)
+}
+
+class Behaviour{{ type.name }}Mock {
+    private let object: {{ type.name }}Mock
+
+    init(object: {{ type.name }}Mock) {
+        self.object = object
+    }
+    {% for method in type.allMethods %}
+    {% if not method.isInitializer %}
+
+    class Behaviour{{ type.name }}{% call swiftifyUpperMethodName method %} {
+        private let object: {{ type.name }}Mock
+
+        init(object: {{ type.name }}Mock) {
+            self.object = object
+        }
+
+        func then(_ completion: @escaping (({% if not method.parameters.count == 0 %}{% for param in method.parameters %}{{ param.typeName.unwrappedTypeName }}?{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}) -> {{ method.returnTypeName }})) {
+            self.object.{% call swiftifyMethodName method %}_then = completion
+        }
+    }
+
+    func {% call swiftifyMethodName method %}() -> Behaviour{{ type.name }}{% call swiftifyUpperMethodName method %} {
+        return Behaviour{{ type.name }}{% call swiftifyUpperMethodName method %}(object: self.object)
+    }
+    {% endif %}
+    {% endfor %}
+}
+
+func when(_ object: {{ type.name }}Mock) -> Behaviour{{ type.name }}Mock {
+    return Behaviour{{ type.name }}Mock(object: object)
+}
+
+{% endif %}
+{% endif %}
+{% endfor %}
