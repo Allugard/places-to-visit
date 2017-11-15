@@ -1,3 +1,6 @@
-language: java
-
-install: mvn clean test -pl web
+{
+  "language": "java",
+  "osx_image": "xcode9.1",
+  "os": "osx",
+  "install": "mvn install -pl mobile"
+}
