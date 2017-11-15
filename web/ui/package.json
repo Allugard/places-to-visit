@@ -11,6 +11,7 @@
     "express": "*",
     "jshint": "^2.9.5",
     "mocha": "^4.0.1",
+    "mockit": "^0.1.1",
     "mongoose": "*",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
