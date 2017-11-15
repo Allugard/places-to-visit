@@ -3,7 +3,7 @@ osx_image: xcode9.1
 os: osx
 
 install:
-    - cd mobile/PlacesToVisit
+    - cd mobile
     - pod repo update
     - pod install
 
