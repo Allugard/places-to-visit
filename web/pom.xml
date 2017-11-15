@@ -45,8 +45,9 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>8091</port>
-                    <url>http://localhost:8090/manager/text</url>
+                    <url>http://localhost:8080/manager/text</url>
+                    <httpPort>8091</httpPort>
+                    <ajpPort>8091</ajpPort>
                     <server>tomcatserver</server>
                     <path>/places</path>
                     <username>admin</username>
@@ -62,9 +63,80 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.6</version>
+
+                <executions>
+                    <execution>
+                        <id>install node and yarn</id>
+                        <goals>
+                            <goal>install-node-and-yarn</goal>
+                        </goals>
+                        <phase>initialize</phase>
+                    </execution>
+
+                    <execution>
+                        <id>yarn install</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>install</arguments>
+                        </configuration>
+                        <phase>initialize</phase>
+                    </execution>
+
+                    <execution>
+                        <id>checkStyle</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run</arguments>
+                            <arguments>checkStyle</arguments>
+                        </configuration>
+                        <phase>generate-resources</phase>
+                    </execution>
+
+                    <execution>
+                        <id>yarn test</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run</arguments>
+                            <arguments>test</arguments>
+                        </configuration>
+                        <phase>test</phase>
+                    </execution>
+
+                    <execution>
+                        <id>yarn node start</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run</arguments>
+                            <arguments>start</arguments>
+                        </configuration>
+                        <phase>package</phase>
+                    </execution>
+
+                </executions>
+
+                <configuration>
+                    <nodeVersion>v6.9.1</nodeVersion>
+                    <yarnVersion>v1.3.2</yarnVersion>
+                    <workingDirectory>${basedir}\ui</workingDirectory>
+                </configuration>
+
+            </plugin>
+
         </plugins>
     </build>
-
 
 
 </project>

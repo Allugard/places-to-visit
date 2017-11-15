@@ -35,3 +35,5 @@ fastlane/report.xml
 fastlane/Preview.xml
 fastlane/screenshots
 fastlane/test_output
+*yarn.lock
+*node*
