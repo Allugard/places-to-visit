@@ -1,8 +1,9 @@
 language: swift
-osx_image: xcode8.3
+osx_image: xcode9.1
 os: osx
 
 install:
+    - cd mobile/PlacesToVisit
     - pod repo update
     - pod install
 
