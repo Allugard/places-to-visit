@@ -1,15 +1,13 @@
-matrix:
-    include:
-        - language: java
-          install: mvn clean test -pl web
-
-        - language: swift
-          osx_image: xcode9.1
-          os: osx
-          install:
-              - cd mobile
-              - pod repo update
-              - pod install
-          script:
-              - xcodebuild -workspace PlacesToVisit.xcworkspace -scheme PlacesToVisit -destination 'platform=iOS Simulator,name=iPhone 6S,OS=11.1' clean build test | xcpretty
+language: swift
+osx_image: xcode9.1
+os: osx
+install:
+    - brew cask install java
+    - brew install maven
+    - mvn clean test -pl web
+    - cd mobile
+    - pod repo update
+    - pod install
+script:
+    - xcodebuild -workspace PlacesToVisit.xcworkspace -scheme PlacesToVisit -destination 'platform=iOS Simulator,name=iPhone 6S,OS=11.1' clean build test | xcpretty
 
