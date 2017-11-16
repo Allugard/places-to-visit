@@ -7,17 +7,5 @@
     <groupId>yo.antihype.team</groupId>
     <artifactId>mobile</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>xcode-lib</packaging>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>com.sap.prd.mobile.ios.mios</groupId>
-                <artifactId>xcode-maven-plugin</artifactId>
-                <version>1.14.5</version>
-                <extensions>true</extensions>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>
