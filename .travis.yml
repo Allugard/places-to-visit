@@ -1,4 +1,4 @@
 {
   "language": "java",
-  "install": "mvn install -pl mobile"
+  "install": "mvn test -pl web"
 }
