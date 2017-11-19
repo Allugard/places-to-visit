@@ -1,5 +1,7 @@
 var key = "";
-exports.checkExistence = function(map, keyProperty){
+var map = [];
+
+exports.checkExistence = function(keyProperty){
     var status = false;
     for (var i = map.length - 1; i >= 0; i--) {
    	var marker = map[i];

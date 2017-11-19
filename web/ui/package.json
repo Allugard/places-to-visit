@@ -10,6 +10,7 @@
     "body-parser": "*",
     "express": "*",
     "jshint": "^2.9.5",
+    "jsmockito": "^1.0.5",
     "mocha": "^4.0.1",
     "mockit": "^0.1.1",
     "mongoose": "*",
