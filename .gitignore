@@ -13,6 +13,8 @@ out/
 *yarn.lock
 *node*
 
+##git
+*.version
 
 ## iOS 
 build/

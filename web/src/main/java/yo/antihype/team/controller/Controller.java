@@ -2,9 +2,9 @@ package yo.antihype.team.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import yo.antihype.team.model.User;
+import yo.antihype.team.service.FileReaderService;
 
-import java.util.Date;
+import java.io.IOException;
 
 /**
  * Created by Serhii_Vasylenko on 9/19/2017.
@@ -13,11 +13,16 @@ import java.util.Date;
 @RequestMapping("/")
 public class Controller {
 
-    @RequestMapping("/some")
-    @ResponseBody
-    public User home() {
-        return new User(1, "Ser", new Date());
+    private final FileReaderService fileReader;
+
+    public Controller(FileReaderService fileReader) {
+        this.fileReader = fileReader;
     }
 
+    @RequestMapping("/app/info")
+    @ResponseBody
+    public String toString(String path) throws IOException {
+        return fileReader.toString("git.version");
+    }
 
 }
