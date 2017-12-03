@@ -1,12 +1,9 @@
 body{
-    background-image: url("../img/back3.jpg");
+	background-image: url(../img/back4.jpg);
 	background-size: cover;
-	background-position: center;
-	color: white;
-	background-color: #212121;
+	color:white;
 }
-
-section.registration{
+section.login{
 	display: flex;
 	background-color: rgba(0,0,0,0.5);
 	width: 100vw;
@@ -16,16 +13,12 @@ section.registration{
 	justify-content: center;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	
 }
 span#span-reg{
 	margin-bottom: 15px;
 	text-transform: uppercase;
 	text-shadow: 0 0 5px black;
-	font-size: 18px;	
-}
-#color{
-	color: #FF7043;
+	font-size: 18px;
 }
 form{
 	background-color: rgba(0,0,0,0.5);
@@ -38,7 +31,7 @@ form{
 }
 span#caution{
 	margin-top: 5px;
-	color:#FF7043;
+	color:#1565c0;
 	text-transform: uppercase;
 	font-size: 12px; 
 }
@@ -61,8 +54,25 @@ input:focus:not(:last-child){
 	
 }
 @keyframes underline{
-	0%{border-bottom:2px solid rgba(255,61,0 ,0);}
-	100%{border-bottom:2px solid rgba(255,61,0 ,1);}
+	0%{border-bottom:2px solid rgba(0,0,0,0);}
+	100%{border-bottom:2px solid #1565c0;}
+}
+span#text{
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: -5px;
+	font-weight: 100;
+}
+span#text:hover{
+	color: #FFF;
+	cursor: pointer;
+	animation: coloringText 2s forwards;
+}
+@keyframes coloringText{
+	0%{color: #FFF;
+		}
+	100%{color: #2196f3;
+		text-shadow: 0 0 2px #212121;}
 }
 label{
 	margin:5px 0;
@@ -70,7 +80,7 @@ label{
 }
 button[type="submit"]{
 	margin:20px 0 0 0;
-	background-color: rgba(255,61,0, 0.8);
+	background-color: #1565c0;
 	height: 35px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
@@ -79,16 +89,24 @@ button[type="submit"]{
 	border:none;
 	outline: none;
 }
-input[type="text"]{
+.menu-text-box:hover, a:hover{
+	cursor: pointer;
+	animation: colorHover 1s alternate forwards;
+}
+@keyframes colorHover{
+	0%{color: white;}
+	100%{color: #1565c0;}
+}
+input[name="name"]{
 	text-transform: capitalize;
 }
-input[type="password"]{
+input[name="password"]{
 	letter-spacing: 5px;
 	font-size: 18px;
 }
 
-@keyframes fadeIn{
-	0%{background-color: black;
-		opacity: 0}
-	100%{opacity: 1}
+button[type="submit"]:hover{
+	background-color: #1565c0;
+	box-shadow: 0 0 10px #212121;
+	cursor: pointer;
 }

@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200,200i,300,300i,400,600,800');
+
+body{
+	margin:0;
+	padding: 0;
+	background-size: cover;
+	background-attachment:fixed;
+	background-position: center;
+	color: white;
+}
+.account{
+	display: flex;
+	align-items: space-around;
+	align-content: space-around;
+	width: 100%;
+	height: 100%;
+	background-color: #212121;
+	
+}
+
+.tabs{
+	flex-direction: column;
+	width: 20%;
+	position: relative;
+	display: flex;  
+	height: 100%;
+	background-color: rgba(10,10,10,0.75);
+	overflow: hidden;
+	box-shadow: 2px 0px 10px #121212;
+}
+.tabs a:first-child,#hint-block:first-child{
+	margin-top: 40px;
+}
+.tabs a,#hint-block{
+	box-sizing: border-box;
+	height: 40px;
+	text-indent: 1.5em;
+	vertical-align: middle;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	font-weight: 600;
+	overflow: hidden;
+}
+.tabs a:hover,a:focus{
+	color: #FFF;
+	background-color: #000;
+	box-shadow: 0 0 10px 5px #111;
+	box-shadow: inset 0 0 5px 2px #050505;
+	cursor: pointer;
+	animation: coloringText 2s forwards;
+}
+@keyframes coloringText{
+	0%{color: #FFF;	}
+	100%{color: #00b8d4;}
+}
+img{
+	width: 30%;
+	height: 30%;
+	animation: resize 2s alternate-reverse infinite;
+}
+@keyframes resize{
+	0%{transform: scale(1);}
+	100%{transform: scale(1.1);}
+}
+.content-box{
+	width: 80%;
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	flex-direction: column;
+}
+#cover{
+	width: 80%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: flex-end;
+	z-index: 4;	
+	overflow-x: hidden;
+	visibility: hidden;
+	flex-direction: row;
+}
+#close-hints i{
+	position: absolute;
+	z-index: 17;
+	right: 0;
+	color: white;
+	margin: 20px;
+	font-size: 30px;
+}
+#close-hints i:hover{
+	color: #26c6da;
+	cursor: pointer;
+}
+h1#account{
+	font-size: 48px;
+	animation: none;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+	font-weight: 600;
+}
+h3{
+	margin: 0;
+	font-weight: 300;
+}
+span#help{
+	text-transform: uppercase;
+	color: #0097A7;	
+}
+span#come{
+	color: #F3705A;	
+}
+#help-btn{
+	background-color: #0097a7;
+	width: 200px;
+	height: 50px;
+	margin-top: 20px;
+	text-transform: uppercase;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+	border-style: none;
+	border-radius: 10px;
+}
+#help-btn:hover{
+	border-style: none;
+	
+	cursor: pointer;
+	box-shadow: 0 0 10px #000;
+}
+#help-btn:focus{
+	outline: none;
+}
+
+.hint-content{
+	display: flex;
+	position: absolute;
+	align-items: flex-start;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	left: 0;
+	font-size: 30px;
+}
+#hint-block i{
+	animation: moveLeft 1s alternate-reverse infinite;
+}
+#hint-block{
+	text-indent: 0.5em;
+}
+@keyframes moveLeft{
+	100%{transform: translateX(0px);}
+	100%{transform: translateX(-5px);}
+}
+#hint-block p{
+	font-size: 18px;
+	font-weight: 400;
+	margin: 0 60px 0 20px;
+	text-indent: 0;
+	text-transform: none;
+}/*
+#hint-block>p{
+	animation: pColor 1s alternate-reverse infinite;
+	cursor: pointer;
+}
+@keyframes pColor{
+	0%{color: white;}
+	100%{color: #03a9f4;}
+}
+#hint-block>i{
+	animation: iShadow 1s alternate-reverse infinite;
+}
+
+@keyframes iShadow{
+	0%{text-shadow: none;}
+	100%{text-shadow: 0 0 20px #03a9f4;}
+}
+/*
+*{
+	border: 1px solid pink; 
+}

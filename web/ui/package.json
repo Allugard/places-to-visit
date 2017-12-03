@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "body-parser": "*",
-    "express": "*",
+    "express": "^4.16.2",
     "jshint": "^2.9.5",
     "jsmockito": "^1.0.5",
     "mocha": "^4.0.1",

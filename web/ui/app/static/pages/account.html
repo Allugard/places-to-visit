@@ -1,0 +1,53 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>MyAccount</title>
+	<link rel="stylesheet" href="css/account.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<section class="account">
+		<div class="tabs">
+				<a href="map">My map</a>
+				<a href="planner">My plans</a>
+				<a href="places">Places to visit</a>
+		</div>	
+		<div class="content-box">
+			<div id="cover">
+				<div class="hint-content">
+
+						<div id="hint-block">
+							<i class="fa fa-long-arrow-left"></i>
+							<p >Open this tab for accessing the map with markers to search your destination or to add a new marker to it.</p>
+						</div>
+
+						<div id="hint-block">
+							<i class="fa fa-long-arrow-left"></i>
+							<p>Open this tab for accessing notes with places to visit or to add a new note to it.</p>
+						</div>
+
+						<div id="hint-block">
+							<i class="fa fa-long-arrow-left"></i>
+							<p>Open this tab for accessing the ideas of places to visit.</p>
+						</div>		
+						
+					</div>
+
+				<div id="close-hints">
+					<i class="fa fa-times" aria-hidden="true" onclick='hideHints()'></i>
+				</div>
+				
+			</div>
+
+			<img src="img/travel.svg">
+
+			<h1 id='account'>Welcome!</h1>
+			<h3>Need some help to get started? Just click on the <span id="help">help</span> button!</h3>
+
+			<button id='help-btn' onclick="showHints()">Help</button>
+		</div>
+	</section>
+<script src="js/account.js"></script>
+</body>
+</html>

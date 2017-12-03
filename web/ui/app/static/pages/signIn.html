@@ -2,9 +2,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>25 PLACES TO VISIT</title>
-	<link rel="stylesheet" type="text/css" href="css/styleSignUp.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<!--<link rel="shortcut icon" href="img/travel.png">-->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/styleSignIn.css">
+	<link rel="shortcut icon" href="img/travel.png">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -18,36 +18,32 @@
 		<div class="dropdown-menu">
 			<ul>
 				<li><a href="/">home</a></li>
-				<li><a href="about">about</a></li>
+				<li><a href="aboutl">about</a></li>
 				<li><a href="info">25 countries</a></li>
 				<li><a href="contacts">contacts</a></li>
 			</ul>
 		</div>
 
-	<section class="registration">
-		<span id="span-reg">Register for <span id="color">free</span></span>
+	<section class="login">
+		<span id="span-reg">Sign in</span>
 		<form action="" id="form" onsubmit="return validate(this);">
 
-			<label for="name">Name </label>
-			<input type="text" pattern = "^[a-zA-Z]+$" spellcheck="false" name="name" autocomplete="off" required>
-			
-			<label for="email">E-mail </label>
-			<input type="email" name="email" autocomplete="off" required>
+			<label for="login">Login</label>
+			<input type="text" pattern = "^[a-zA-Z]+$" spellcheck="false" name="login" autocomplete="off" required>
 
 			<label for="password">Password </label>
 			<input type="password" name="password" autocomplete="off" required minlength="4" maxlength="8" size="8">
 			
-			<label for="conf-password">Confirm password </label>
-			 <input type="password" name="cpassword" autocomplete="off" required minlength="4" maxlength="8" size="8">
            	<span id="caution"></span>
-			<button type="submit" value="Sign Up" ">Sign Up</button>
+			<button type="submit" value="Sign Up" ">Sign In</button>
+			<span id="text">Forgot your password?</span>
 		</form>
 	</section>
 
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="js/script.js"></script>	
 			
 </body>
 </html>

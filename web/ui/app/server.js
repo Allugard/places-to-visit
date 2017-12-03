@@ -1,9 +1,8 @@
 
 // BASE SETUP
 // =============================================================================
-
-var express    = require('express');
-var app        = express();
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 var path       = require("path");
 var Sequelize  = require('sequelize');
@@ -21,13 +20,12 @@ var port = process.env.PORT || 9000; // set our port
 
 // Load Routes
 // =============================================================================
-var routerApi = express.Router();
-var router    = express.Router();
-var a;
-if(router == routerApi){
 
-}
-require('./js/client.js')(app,router);
+var router    = express.Router();
+
+app.use(express.static(path.join(__dirname, '/static')));
+
+require('./js/router.js')(app,router);
 
 // START THE SERVER
 // =============================================================================
