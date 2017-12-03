@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Serhii Vasylenko
+      changes:
+        - createTable:
+            tableName: USERS
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: USER_PK
+              - column:
+                  name: NICKNAME
+                  type: VARCHAR2(255)
+              - column:
+                  name: EMAIL
+                  type: VARCHAR2(255)
+                  constraints:
+                    unique: true
+              - column:
+                  name: PASSWORD
+                  type: VARCHAR2(255)

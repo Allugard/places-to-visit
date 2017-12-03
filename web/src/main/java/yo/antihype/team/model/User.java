@@ -1,45 +1,32 @@
 package yo.antihype.team.model;
 
-import java.util.Date;
+import lombok.*;
+
+import javax.persistence.*;
 
 /**
  * Created by Serhii_Vasylenko on 9/19/2017.
  */
+@Entity
+@Table(name = "USERS")
+@Getter
+@Setter
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
-    private int id;
-    private String name;
-    private Date registrationDate;
 
-    public User() {
-    }
+    @Id
+    @GeneratedValue
+    @Column(name = "ID")
+    private  Long id;
 
-    public User(int id, String name, Date registrationDate) {
-        this.id = id;
-        this.name = name;
-        this.registrationDate = registrationDate;
-    }
+    @Column(name = "NICKNAME")
+    private String nickname;
 
-    public int getId() {
-        return id;
-    }
+    @Column(name = "EMAIL")
+    private String email;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
-    }
+    @Column(name = "PASSWORD")
+    private String password;
 }

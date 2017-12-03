@@ -19,13 +19,14 @@ public class UserServiceTest {
     @Test
     public void shouldCreateUser() {
         //GIVEN
-        when(userRepository.createUser(any(User.class))).thenReturn(true);
+        User user = new User();
+        when(userRepository.save(any(User.class))).thenReturn(user);
 
         //WHEN
-        boolean result = sut.createUser(new User());
+        User result = sut.createUser(new User());
 
         //THEN
-        assertThat(result, CoreMatchers.is(true));
+        assertThat(result, CoreMatchers.is(user));
     }
 
 }

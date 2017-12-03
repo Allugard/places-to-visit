@@ -15,8 +15,6 @@ import java.util.stream.Collectors;
 @Service
 public class FileReaderService {
 
-    @RequestMapping("/app/info")
-    @ResponseBody
     public String toString(String path) throws IOException {
         Resource resource = new ClassPathResource(path);
         InputStream resourceInputStream = resource.getInputStream();

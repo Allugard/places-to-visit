@@ -1,23 +1,25 @@
 package yo.antihype.team.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import yo.antihype.team.model.User;
 import yo.antihype.team.repository.UserRepository;
 
-import java.util.List;
-
+@Service
 public class UserService {
 
     private final UserRepository userRepository;
 
+    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public boolean createUser(User user) {
-        return userRepository.createUser(user);
+    public User createUser(User user) {
+        return userRepository.save(user);
     }
 
-    public List<User> findAll() {
+    public Iterable<User> findAll() {
         return userRepository.findAll();
     }
 }
