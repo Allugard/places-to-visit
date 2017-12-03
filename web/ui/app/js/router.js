@@ -1,3 +1,5 @@
+var request = require('request');
+
 module.exports = function(app, router){
 
     //Here comes frontend pages
@@ -25,6 +27,22 @@ module.exports = function(app, router){
         res.sendFile('map.html', { root: './app/static/pages' });
     });
 
+    router.post('/users', function(req, res) {
+        console.log(req.body);
+        createUser(req.body);
+        res.sendFile('signIn.html', { root: './app/static/pages' });
+    });
+
 
     app.use('/', router);
+};
+
+function createUser(body){
+    request({
+        url: "http://127.0.0.1:9001/users",
+        json: body,
+        method: 'PUT'
+    }, function(error, response, body) {
+        res.sendFile('signIn.html', { root: './app/static/pages' });
+    })
 }

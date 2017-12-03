@@ -11,6 +11,7 @@ out/
 
 ## node
 *yarn.lock
+*lock.json
 *node*
 
 ##git

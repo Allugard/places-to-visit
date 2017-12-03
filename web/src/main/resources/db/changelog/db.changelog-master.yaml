@@ -14,7 +14,7 @@ databaseChangeLog:
                     primaryKey: true
                     primaryKeyName: USER_PK
               - column:
-                  name: NICKNAME
+                  name: USERNAME
                   type: VARCHAR2(255)
               - column:
                   name: EMAIL

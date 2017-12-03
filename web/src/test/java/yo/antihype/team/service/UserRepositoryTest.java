@@ -34,7 +34,7 @@ public class UserRepositoryTest {
         //THEN
         User res = entityManager.find(User.class, user.getId());
         assertThat(res.getEmail(), is(user.getEmail()));
-        assertThat(res.getNickname(), is(user.getNickname()));
+        assertThat(res.getUsername(), is(user.getUsername()));
         assertThat(res.getPassword(), is(user.getPassword()));
     }
 
@@ -50,7 +50,7 @@ public class UserRepositoryTest {
 
         //THEN
         assertThat(result.getEmail(), is(user.getEmail()));
-        assertThat(result.getNickname(), is(user.getNickname()));
+        assertThat(result.getUsername(), is(user.getUsername()));
         assertThat(result.getPassword(), is(user.getPassword()));
     }
 
@@ -76,7 +76,7 @@ public class UserRepositoryTest {
         entityManager.persist(user);
         entityManager.flush();
 
-        user.setNickname("nickname");
+        user.setUsername("username");
 
         //WHEN
         userRepository.save(user);
@@ -84,14 +84,14 @@ public class UserRepositoryTest {
         //THEN
         User result = entityManager.find(User.class, user.getId());
         assertThat(result.getEmail(), is(user.getEmail()));
-        assertThat(result.getNickname(), is(user.getNickname()));
+        assertThat(result.getUsername(), is(user.getUsername()));
         assertThat(result.getPassword(), is(user.getPassword()));
     }
 
     private User createUser() {
         User user = new User();
         user.setEmail("example@email.com");
-        user.setNickname("nickname");
+        user.setUsername("username");
         user.setPassword("pass");
         return user;
     }

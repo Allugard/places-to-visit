@@ -16,6 +16,7 @@
     "mongoose": "*",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
+    "request": "^2.83.0",
     "sequelize": "^3.30.4"
   }
 }
