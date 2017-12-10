@@ -2,26 +2,27 @@
 <head>
 	<meta charset="UTF-8">
 	<title>My Map</title>
-	<link rel="stylesheet" href="css/map.css">
+	<link rel="stylesheet" href="../css/map.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 	<section class="account">
 		<div class="tabs">
-				<a href="map.html">My map</a>
-				<a href="planner.html">My plans</a>
-				<a href="places.html">Places to visit</a>
+				<a href="map">My map</a>
+				<a href="planner">My plans</a>
+				<a href="places">Places to visit</a>
 		</div>	
 		<div class="content-box">
-			<div id="map"></div>
-		</div>	
+      <div id="map"></div>
+   	</div>	
 		
 	</section>
 <script src="js/account.js"></script>
-<script>
+
+        <script>
      				 function initMap() {
-     				 	
+
      				 	var data = new Array();
      				 	for (var j = 0; j < 100; j++) {
      				 		var markers = new Object();
@@ -30,7 +31,6 @@
      				 		
      				 		data.push(markers);
      				 	}
-      					
 
        					var map = new google.maps.Map(document.getElementById('map'), {
          					zoom: 7,
@@ -46,6 +46,8 @@
        					}     					
       				}
    				 </script>
+
+    
 
    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&callback=initMap">
     </script>

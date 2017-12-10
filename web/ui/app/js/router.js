@@ -33,7 +33,6 @@ module.exports = function(app, router){
         res.sendFile('signIn.html', { root: './app/static/pages' });
     });
 
-
     app.use('/', router);
 };
 
