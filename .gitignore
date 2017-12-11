@@ -11,8 +11,11 @@ out/
 
 ## node
 *yarn.lock
+*lock.json
 *node*
 
+##git
+*.version
 
 ## iOS 
 build/

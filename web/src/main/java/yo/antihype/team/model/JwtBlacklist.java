@@ -12,29 +12,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by Serhii_Vasylenko on 9/19/2017.
- */
 @Entity
-@Table(name = "USERS")
+@Table(name = "JWT_BLACKLIST")
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class JwtBlacklist {
 
     @Id
     @GeneratedValue
     @Column(name = "ID")
     private  Long id;
 
-    @Column(name = "USERNAME")
-    private String username;
-
-    @Column(name = "EMAIL")
-    private String email;
-
-    @Column(name = "PASSWORD")
-    private String password;
+    @Column(name = "TOKEN")
+    private String token;
 }
+

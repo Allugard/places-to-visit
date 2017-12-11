@@ -2,9 +2,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>25 PLACES TO VISIT</title>
-	<link rel="stylesheet" href="../css/style.css">
-	<link rel="stylesheet" href="../css/styleSignUp.css">
-	<link rel="shortcut icon" href="../img/travel.png">
+	<link rel="stylesheet" type="text/css" href="css/styleSignUp.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!--<link rel="shortcut icon" href="img/travel.png">-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -17,19 +17,19 @@
 
 		<div class="dropdown-menu">
 			<ul>
-				<li><a href="index.html">home</a></li>
-				<li><a href="about.html">about</a></li>
-				<li><a href="info.html">25 countries</a></li>
-				<li><a href="contacts.html">contacts</a></li>
+				<li><a href="/">home</a></li>
+				<li><a href="about">about</a></li>
+				<li><a href="info">25 countries</a></li>
+				<li><a href="contacts">contacts</a></li>
 			</ul>
 		</div>
 
 	<section class="registration">
 		<span id="span-reg">Register for <span id="color">free</span></span>
-		<form action="" id="form" onsubmit="return validate(this);">
+		<form action="/users" method="post" id="form">
 
 			<label for="name">Name </label>
-			<input type="text" pattern = "^[a-zA-Z]+$" spellcheck="false" name="name" autocomplete="off" required>
+			<input type="text" pattern = "^[a-zA-Z]+$" spellcheck="false" name="username" autocomplete="off" required>
 			
 			<label for="email">E-mail </label>
 			<input type="email" name="email" autocomplete="off" required>
@@ -47,7 +47,7 @@
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="../js/script.js"></script>	
+	<script src="js/script.js"></script>
 			
 </body>
 </html>

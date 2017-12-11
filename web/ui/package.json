@@ -8,12 +8,15 @@
   },
   "dependencies": {
     "body-parser": "*",
-    "express": "*",
+    "express": "^4.16.2",
     "jshint": "^2.9.5",
+    "jsmockito": "^1.0.5",
     "mocha": "^4.0.1",
+    "mockit": "^0.1.1",
     "mongoose": "*",
     "pg": "^6.1.5",
     "pg-hstore": "^2.3.2",
+    "request": "^2.83.0",
     "sequelize": "^3.30.4"
   }
 }

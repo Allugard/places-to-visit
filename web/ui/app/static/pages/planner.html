@@ -1,0 +1,76 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>My Planner</title>
+	<link rel="stylesheet" href="../css/planner.css">
+	<link rel="stylesheet" href="../css/calendar.css">
+	<link rel="stylesheet" href="../css/map.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+<body>
+	<section class="account">
+		<div class="tabs">
+				<a href="map">My map</a>
+				<a href="planner">My plans</a>
+				<a href="places">Places to visit</a>
+		</div>	
+		<div class="content">
+		<form action="" id="planner">
+				<label for="destination">Destination</label><div id="locationField">
+     		 <input id="autocomplete" placeholder="Enter your destination"
+             onclick="geolocate()" type="text"></input></div>
+             	<label for="date">When</label><input type="date" name="date"></input>
+				<label for="note">Notes</label><textarea name="note"></textarea>
+				<button>Add note</button>			
+			</form>
+		</div>	
+		<div class="content block">
+				<div id="calendar"></div>
+
+		</div>
+		
+	</section>
+
+	<script>
+		function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete((document.getElementById('autocomplete')),
+        {types: ['geocode']});
+      	}
+      	function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+             	lat: position.coords.latitude,
+            	lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              	center: geolocation,
+            		radius: position.coords.accuracy
+           		});
+           		 	autocomplete.setBounds(circle.getBounds());
+          		});
+        	}
+      	}
+	</script>
+	
+	<script src="../js/calendar.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="../js/jquery-ui-datepicker.min.js"></script>
+	<script>
+		$('#calendar').datepicker({
+			inline: true,
+			firstDay: 1,
+			showOtherMonths: true,
+			dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+		});
+	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&libraries=places&callback=initAutocomplete"
+    async defer></script>
+	
+	
+</body>
+</html>

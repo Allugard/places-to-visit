@@ -1,0 +1,59 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>My Map</title>
+	<link rel="stylesheet" href="../css/map.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+	<section class="account">
+		<div class="tabs">
+				<a href="map">My map</a>
+				<a href="planner">My plans</a>
+				<a href="places">Places to visit</a>
+		</div>	
+		<div class="content-box">
+      <div id="map"></div>
+   	</div>	
+		
+	</section>
+<script src="js/account.js"></script>
+
+        <script>
+     				 function initMap() {
+
+     				 	var data = new Array();
+     				 	for (var j = 0; j < 100; j++) {
+     				 		var markers = new Object();
+     				 		markers.lat = parseFloat(Math.random()*70*Math.pow(-1, j));
+     				 		markers.lng = parseFloat(Math.random()*60*Math.pow(-1, j));
+     				 		
+     				 		data.push(markers);
+     				 	}
+
+       					var map = new google.maps.Map(document.getElementById('map'), {
+         					zoom: 7,
+         					center: data[0]
+       					});
+       					for (var i = 0; i< data.length; i++) {
+       						var marker = new google.maps.Marker({
+       							position: data[i], 
+       							map: map
+       						});
+
+     				 		console.log(data[i]);	
+       					}     					
+      				}
+   				 </script>
+
+    
+
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&callback=initMap">
+    </script>
+</body>
+</html>
+
+
+    
+    

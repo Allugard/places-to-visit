@@ -1,0 +1,47 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Serhii Vasylenko
+      changes:
+        - createTable:
+            tableName: USERS
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: USER_PK
+              - column:
+                  name: USERNAME
+                  type: VARCHAR2(255)
+              - column:
+                  name: EMAIL
+                  type: VARCHAR2(255)
+                  constraints:
+                    unique: true
+              - column:
+                  name: PASSWORD
+                  type: VARCHAR2(255)
+
+  - changeSet:
+      id: 2
+      author: Serhii Vasylenko
+      changes:
+        - createTable:
+            tableName: JWT_BLACKLIST
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: JWT_BLACKLIST_PK
+              - column:
+                  name: TOKEN
+                  type: VARCHAR2(255)
+                  constraints:
+                    unique: true
+
