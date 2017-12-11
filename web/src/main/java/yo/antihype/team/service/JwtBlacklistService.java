@@ -17,9 +17,13 @@ public class JwtBlacklistService {
 
 
     public void add(String token) {
-        JwtBlacklist jwt = new JwtBlacklist();
-        jwt.setToken(token);
-        jwtBlacklistRepository.save(jwt);
+        JwtBlacklist jwt = jwtBlacklistRepository.findByToken(token);
+
+        if (jwt == null) {
+            jwt = new JwtBlacklist();
+            jwt.setToken(token);
+            jwtBlacklistRepository.save(jwt);
+        }
     }
 
     public boolean isLogout(String token) {

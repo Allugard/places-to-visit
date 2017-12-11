@@ -1,7 +1,7 @@
 package yo.antihype.team.filter;
 
 import io.jsonwebtoken.Jwts;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,6 +21,7 @@ import static yo.antihype.team.util.SecurityConstants.TOKEN_PREFIX;
 
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
+    @Autowired
     private final JwtBlacklistService jwtBlacklistService;
 
     public JwtAuthorizationFilter(AuthenticationManager authenticationManager, JwtBlacklistService jwtBlacklistService) {
@@ -34,24 +35,14 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
         String header = request.getHeader(HEADER_STRING);
 
         if (header == null || !header.startsWith(TOKEN_PREFIX)) {
-            forbidden(response);
+            chain.doFilter(request, response);
             return;
         }
 
         UsernamePasswordAuthenticationToken authentication = getAuthentication(request);
 
-        if (authentication == null) {
-            forbidden(response);
-            return;
-        }
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
         chain.doFilter(request, response);
-    }
-
-    private void forbidden(HttpServletResponse response) throws IOException {
-        response.setStatus(HttpStatus.FORBIDDEN.value());
-        response.getWriter().flush();
     }
 
     private UsernamePasswordAuthenticationToken getAuthentication(HttpServletRequest request) {
