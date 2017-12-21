@@ -115,6 +115,18 @@
             </plugin>
 
             <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.3.6</version>
+                <configuration>
+                    <repository>${project.artifactId}</repository>
+                    <buildArgs>
+                        <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
@@ -167,18 +179,6 @@
                             <arguments>test</arguments>
                         </configuration>
                         <phase>test</phase>
-                    </execution>
-
-                    <execution>
-                        <id>yarn node start</id>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run</arguments>
-                            <arguments>start</arguments>
-                        </configuration>
-                        <phase>package</phase>
                     </execution>
 
                 </executions>
