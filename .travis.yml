@@ -1,12 +1,23 @@
-language: swift
-osx_image: xcode9.1
-os: osx
-install:
-    - brew cask install java
-    - brew install maven
-    - mvn clean test -pl web
-    - cd mobile
-    - pod repo update
-    - pod install
+sudo: required
+
+language: java
+
+services:
+  - docker
+
+env:
+ DOCKER_COMPOSE_VERSION: 1.15.0
+
+
+before_install:
+- sudo /etc/init.d/mysql stop
+- docker-machine ip
+- cd web
+- mvn clean install dockerfile:build
+- docker-compose up -d
+
 script:
-    - xcodebuild -workspace PlacesToVisit.xcworkspace -scheme PlacesToVisit -destination 'platform=iOS Simulator,name=iPhone 6S,OS=11.1' clean build test | xcpretty
+- mvn -Dtest="yo.antihype.team.docker.**" test
+
+after_script:
+- docker-compose down

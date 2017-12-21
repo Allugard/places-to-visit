@@ -7,7 +7,6 @@ import yo.antihype.team.model.User;
 import yo.antihype.team.service.UserService;
 
 @RestController
-@RequestMapping("/")
 public class SecurityController {
 
     private final UserService userService;

@@ -1,4 +1,4 @@
-package yo.antihype.team.service;
+package yo.antihype.team.repository;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

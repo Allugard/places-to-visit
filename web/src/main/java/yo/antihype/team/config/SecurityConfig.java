@@ -15,6 +15,7 @@ import yo.antihype.team.filter.JwtAuthorizationFilter;
 import yo.antihype.team.handler.JwtLogoutHandler;
 import yo.antihype.team.service.JwtBlacklistService;
 
+import static yo.antihype.team.util.SecurityConstants.DELETE_ALL_USERS;
 import static yo.antihype.team.util.SecurityConstants.SIGN_UP_URL;
 
 
@@ -36,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.PUT, SIGN_UP_URL).permitAll()
+                .antMatchers(HttpMethod.DELETE, DELETE_ALL_USERS).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(authenticationManager()), LogoutFilter.class)

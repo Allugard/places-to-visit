@@ -119,6 +119,7 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.3.6</version>
                 <configuration>
+                    <finalName>web</finalName>
                     <repository>${project.artifactId}</repository>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
@@ -129,66 +130,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.6</version>
-
-                <executions>
-                    <execution>
-                        <id>install node and yarn</id>
-                        <goals>
-                            <goal>install-node-and-yarn</goal>
-                        </goals>
-                        <phase>initialize</phase>
-                    </execution>
-
-                    <execution>
-                        <id>yarn install</id>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>install</arguments>
-                        </configuration>
-                        <phase>initialize</phase>
-                    </execution>
-
-                    <execution>
-                        <id>checkStyle</id>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run</arguments>
-                            <arguments>checkStyle</arguments>
-                        </configuration>
-                        <phase>generate-resources</phase>
-                    </execution>
-
-                    <execution>
-                        <id>yarn test</id>
-                        <goals>
-                            <goal>yarn</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run</arguments>
-                            <arguments>test</arguments>
-                        </configuration>
-                        <phase>test</phase>
-                    </execution>
-
-                </executions>
-
-                <configuration>
-                    <nodeVersion>v6.9.1</nodeVersion>
-                    <yarnVersion>v1.3.2</yarnVersion>
-                    <workingDirectory>${basedir}\ui</workingDirectory>
-                </configuration>
-
             </plugin>
 
             <plugin>
@@ -254,6 +195,99 @@
 
         </plugins>
     </build>
+
+
+    <profiles>
+        <profile>
+            <id>integration</id>
+            <properties>
+                <skipIT>false</skipIT>
+                <skipUnitTests>true</skipUnitTests>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.20.1</version>
+                        <configuration>
+                            <includes>
+                                <include>**/docker/**IT.java</include>
+                            </includes>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>frontend</id>
+            <build>
+                <plugins>
+                    <plugin>
+
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <version>1.6</version>
+
+                        <executions>
+                            <execution>
+                                <id>install node and yarn</id>
+                                <goals>
+                                    <goal>install-node-and-yarn</goal>
+                                </goals>
+                                <phase>initialize</phase>
+                            </execution>
+
+                            <execution>
+                                <id>yarn install</id>
+                                <goals>
+                                    <goal>yarn</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>install</arguments>
+                                </configuration>
+                                <phase>initialize</phase>
+                            </execution>
+
+                            <execution>
+                                <id>checkStyle</id>
+                                <goals>
+                                    <goal>yarn</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run</arguments>
+                                    <arguments>checkStyle</arguments>
+                                </configuration>
+                                <phase>generate-resources</phase>
+                            </execution>
+
+                            <execution>
+                                <id>yarn test</id>
+                                <goals>
+                                    <goal>yarn</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run</arguments>
+                                    <arguments>test</arguments>
+                                </configuration>
+                                <phase>test</phase>
+                            </execution>
+
+                        </executions>
+
+                        <configuration>
+                            <nodeVersion>v6.9.1</nodeVersion>
+                            <yarnVersion>v1.3.2</yarnVersion>
+                            <workingDirectory>${basedir}\ui</workingDirectory>
+                        </configuration>
+
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
     <pluginRepositories>
         <pluginRepository>

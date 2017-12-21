@@ -11,7 +11,6 @@ import java.io.IOException;
  * Created by Serhii_Vasylenko on 9/19/2017.
  */
 @RestController
-@RequestMapping("/")
 public class Controller {
 
     private final FileReaderService fileReader;
