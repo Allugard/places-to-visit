@@ -15,21 +15,39 @@
 				<a href="map">My map</a>
 				<a href="planner">My plans</a>
 				<a href="places">Places to visit</a>
-		</div>	
-		<div class="content">
-		<form action="" id="planner">
-				<label for="destination">Destination</label><div id="locationField">
-     		 <input id="autocomplete" placeholder="Enter your destination"
-             onclick="geolocate()" type="text"></input></div>
-             	<label for="date">When</label><input type="date" name="date"></input>
-				<label for="note">Notes</label><textarea name="note"></textarea>
-				<button>Add note</button>			
-			</form>
-		</div>	
-		<div class="content block">
-				<div id="calendar"></div>
-
 		</div>
+		<div id="wrap">
+			<div id="wrap1">
+				<div class="content">
+					<form action="" id="planner">
+
+						<label for="destination">Destination</label>
+						<div id="locationField">
+			     			<input id="autocomplete" placeholder="Enter your destination" onclick="geolocate()" type="text"></input>
+			     		</div>
+
+			            <label for="date">When</label>
+			            <input type="text" name="date" id="date-field"></input>
+
+						<label for="note">Notes</label>
+						<textarea name="note" id="textarea-note"></textarea>
+
+						<button id="submit">Add note</button>	
+
+					</form>
+				</div>	
+
+				<div class="content block">
+					<div id="calendar"></div>
+				</div>
+			</div>
+
+			<div id="display-notes">
+				<p id="display-text"></p>
+			</div>	
+		</div>
+
+		
 		
 	</section>
 
@@ -54,11 +72,12 @@
         	}
       	}
 	</script>
-	
-	<script src="../js/calendar.js"></script>
 
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="../js/jquery-ui-datepicker.min.js"></script>
+	<script src="../js/planner.js"></script>
+
 	<script>
 		$('#calendar').datepicker({
 			inline: true,

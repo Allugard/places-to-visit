@@ -22,6 +22,7 @@ var router    = express.Router();
 app.use(express.static(path.join(__dirname, '/static')));
 
 require('./js/router.js')(app,router);
+require('./js/user.js')(app,router);
 
 // START THE SERVER
 app.listen(port);

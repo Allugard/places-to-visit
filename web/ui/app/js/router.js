@@ -26,22 +26,17 @@ module.exports = function(app, router){
     router.all('/map', function(req, res) {
         res.sendFile('map.html', { root: './app/static/pages' });
     });
-
-    router.post('/users', function(req, res) {
-        console.log(req.body);
-        createUser(req.body);
-        res.sendFile('signIn.html', { root: './app/static/pages' });
+    router.all('/plces', function(req, res) {
+        res.sendFile('places.html', { root: './app/static/pages' });
     });
+
+    router.all('/planner', function(req, res) {
+        res.sendFile('planner.html', { root: './app/static/pages' });
+    });
+
+   /* router.post('/users', function(req, res) {
+        user.createUser(req.body,res);
+    });*/
 
     app.use('/', router);
 };
-
-function createUser(body){
-    request({
-        url: "http://127.0.0.1:9001/users",
-        json: body,
-        method: 'PUT'
-    }, function(error, response, body) {
-        res.sendFile('signIn.html', { root: './app/static/pages' });
-    })
-}

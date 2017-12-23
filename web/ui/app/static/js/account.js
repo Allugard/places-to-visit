@@ -1,11 +1,10 @@
-function showHints(){
-	var cover = document.getElementById('cover');
-	cover.style.backgroundColor = "black"; 
-	cover.style.opacity=0.95;
+function showHints(block){
+	var cover = document.getElementById(block);
+	cover.style.backgroundColor = "rgba(0,0,0,.5)"; 
 	cover.style.visibility = "visible";
 }
 
-function hideHints(){
-	var cover = document.getElementById('cover');
+function hideHints(block){
+	var cover = document.getElementById(block);
 	cover.style.visibility = "hidden";
 }

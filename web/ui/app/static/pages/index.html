@@ -7,6 +7,15 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 	<section class="home">
 
 		<div class="menu">
@@ -18,10 +27,8 @@
 
 		<div class="dropdown-menu">
 			<ul>
-				<li><a href="/">home</a></li>
 				<li><a href="about">about</a></li>
 				<li><a href="info">25 countries</a></li>
-				<li><a href="contacts">contacts</a></li>
 			</ul>
 		</div>
 
@@ -34,9 +41,23 @@
 			<h1>25 places to visit in your life. </h1>
 			<h5>your free <span class="inspiration">inspiration.</span></h5>
 		</div>	
+		<div id="social">	
+			<div id="social-btn-block">
+				<a data-pin-do="buttonPin" href="https://www.pinterest.com/pin/create/button/?url=http://places.to.visit.com" data-pin-config="above"></a>
+			</div>	
 
+			<div id="social-btn-block">
+				<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false"></a>
+			</div>
+			
+			<div id="social-btn-block">
+				<div class="fb-share-button" data-href="https://places.to.visit.com" data-layout="button_count" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"></a></div>
+			</div>
+		</div>
 	</section>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/script.js"></script>
+	<script async src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script async src="js/script.js"></script>
+	<script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </body>
 </html>

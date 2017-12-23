@@ -12,45 +12,41 @@
 				<a href="map">My map</a>
 				<a href="planner">My plans</a>
 				<a href="places">Places to visit</a>
-		</div>	
-		<div class="content-box">
-      <div id="map"></div>
-   	</div>	
-		
-	</section>
-<script src="js/account.js"></script>
-
-        <script>
-     				 function initMap() {
-
-     				 	var data = new Array();
-     				 	for (var j = 0; j < 100; j++) {
-     				 		var markers = new Object();
-     				 		markers.lat = parseFloat(Math.random()*70*Math.pow(-1, j));
-     				 		markers.lng = parseFloat(Math.random()*60*Math.pow(-1, j));
-     				 		
-     				 		data.push(markers);
-     				 	}
-
-       					var map = new google.maps.Map(document.getElementById('map'), {
-         					zoom: 7,
-         					center: data[0]
-       					});
-       					for (var i = 0; i< data.length; i++) {
-       						var marker = new google.maps.Marker({
-       							position: data[i], 
-       							map: map
-       						});
-
-     				 		console.log(data[i]);	
-       					}     					
-      				}
-   				 </script>
+        
+        <div id="btn-wrapper">
+           <button class="btn" id="add-marker">Add new Place</button>
+          <!-- <button class="btn" id="rmv-marker">Remove marker</button>-->
+          <button class="btn" id="clean-map">Clean map</button>
+          <button class="btn" id="save">Save</button>
+        </div>
+		</div>
 
     
+  
+		<div class="content-box">
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+    <div id="map"></div>
+   	</div>	
+ 
+   
+	</section> 
+  <script src="../js/account.js"></script>
+  <script src="../js/map.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&libraries=places&callback=initAutocomplete" async defer></script>
 
-   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&callback=initMap">
-    </script>
+ 
+  <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&callback=initMap">-->
+
+ <!-- <div id="locationField">
+              <input id="autocomplete" placeholder="Enter your destination" onclick="geolocate()" type="text"></input>
+          </div>
+   
+    -->
+
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&libraries=places&callback=initMap" async defer></script>-->
+
+
+
 </body>
 </html>
 
