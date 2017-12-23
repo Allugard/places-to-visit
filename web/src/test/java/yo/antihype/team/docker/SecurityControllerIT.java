@@ -22,8 +22,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(SpringRunner.class)
 public class SecurityControllerIT {
 
-    @Value("${}")
-    private final String DOCKER_URL = "http://192.168.99.100:9001";
+    private static final String DOCKER_URL = "http://172.17.0.2:9001";
 
     private TestRestTemplate restTemplate;
 
