@@ -11,9 +11,7 @@ To run frontend:
 ## Docker
 
 app:
-1. mvn clean install dockerfile:build -pl web
-2. docker run --name web -p 9001:9001 web:latest
+1.cd web
+2. mvn clean install dockerfile:build
+3. docker-compose up  
 
-MariaDB:
-
-docker run --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=places -e MYSQL_PASSWORD=places -e MYSQL_DATABASE=places -d mariadb:latest
