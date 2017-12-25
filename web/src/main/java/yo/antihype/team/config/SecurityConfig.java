@@ -1,5 +1,6 @@
 package yo.antihype.team.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,6 +11,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import yo.antihype.team.filter.CorsFilter;
 import yo.antihype.team.filter.JwtAuthenticationFilter;
 import yo.antihype.team.filter.JwtAuthorizationFilter;
 import yo.antihype.team.handler.JwtLogoutHandler;
@@ -40,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE, DELETE_ALL_USERS).permitAll()
                 .anyRequest().authenticated()
                 .and()
+                .addFilterBefore(new CorsFilter(), JwtAuthenticationFilter.class)
                 .addFilterBefore(new JwtAuthenticationFilter(authenticationManager()), LogoutFilter.class)
                 .addFilterBefore(new JwtAuthorizationFilter(authenticationManager(), jwtBlacklistService), LogoutFilter.class)
                 .logout()

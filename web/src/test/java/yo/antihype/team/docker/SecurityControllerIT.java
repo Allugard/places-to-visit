@@ -4,7 +4,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -22,7 +21,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(SpringRunner.class)
 public class SecurityControllerIT {
 
-    private static final String DOCKER_URL = "http://172.17.0.2:9001";
+    private static final String DOCKER_URL = "http://localhost:9001";
 
     private TestRestTemplate restTemplate;
 

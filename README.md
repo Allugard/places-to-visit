@@ -1,7 +1,4 @@
 # places-to-visit
-To run backend locally:
-in root directory
-mvn spring-boot:run -pl web
 
 To run frontend:
 1. cd web\ui
@@ -10,8 +7,10 @@ To run frontend:
 
 ## Docker
 
-app:
-1.cd web
-2. mvn clean install dockerfile:build
-3. docker-compose up  
+1. docker run --name mariadb -p 3306:3306 -p 9001:9001 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_USER=places -e MYSQL_PASSWORD=places -e MYSQL_DATABASE=places -d mariadb:latest
+2. mvn clean install dockerfile:build -pl web
+3. docker run -d --name web --network container:mariadb web:latest
+
+
+ 
 
