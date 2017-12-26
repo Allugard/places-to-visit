@@ -63,7 +63,7 @@ databaseChangeLog:
       author: Serhii Vasylenko
       changes:
         - createTable:
-            tableName: USER_PLACE
+            tableName: USERS_PLACE
             columns:
               - column:
                   name: USERS_ID
