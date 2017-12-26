@@ -1,6 +1,7 @@
 package yo.antihype.team.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -8,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import yo.antihype.team.dto.EmptyDto;
 import yo.antihype.team.model.User;
 
 import javax.servlet.FilterChain;
@@ -22,6 +24,8 @@ import java.util.Date;
 import static yo.antihype.team.util.SecurityConstants.*;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
+    private static final String EMPTY_JSON = "{}";
     private AuthenticationManager authenticationManager;
 
     public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
@@ -52,7 +56,9 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         response.addCookie(new Cookie("username", ((org.springframework.security.core.userdetails.User) authResult.getPrincipal()).getUsername()));
         response.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        response.getWriter().write(EMPTY_JSON);
     }
+
 }
 
 
