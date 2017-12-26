@@ -34,6 +34,7 @@ body{
 	margin-top: 11px;
 	border-radius: 2px;
 	box-shadow: 0 0 2px #505050;
+	display: none;
 }
 .btn {
 	width: 80%;
@@ -143,4 +144,58 @@ div#add-place{
 	align-content: center;
 	justify-content: center;
 	flex-direction: column;
+}
+
+div#list-wrapper{
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	position: absolute;
+	z-index: 700;
+	visibility: hidden;
+	width: 100%;
+	height: 100%;
+}
+div#list-form{
+	display: flex;
+	background-color: #212121;
+	width: 30%;
+	min-height: 10%;
+	flex-direction: column;
+}
+div#list-form > .row{
+	display: flex;
+	align-content: flex-start;
+	align-items: center;
+	justify-content: space-between;
+	margin: 5px;
+	padding: 5px;
+}
+i:hover{
+	cursor: pointer;
+	color: #26c6da;
+	filter: drop-shadow(0 0 5px black);
+}
+#row{
+	margin: 5px;
+	padding: 5px;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: justify;
+	word-wrap: break-word;
+	justify-content: flex-start;
+}
+#delete{
+	width: 100%;
+	height: 30px;
+	outline: none;
+	border: none;
+	background-color: #26c6da;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+}
+#delete:hover{
+	cursor: pointer;
+	text-shadow: 0 0 10px #0f0f0f;
 }

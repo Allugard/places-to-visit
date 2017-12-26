@@ -26,3 +26,37 @@ function validate(form){
 		return true;
 	}
 }
+function sendData(){
+//document.getElementById("submit").addEventListener('click',function (){
+	var dataForm = JSON.stringify(formToJson($("form#form").serializeArray()));
+	console.log(dataForm);
+
+	$.ajax({
+	  method: "PUT",
+	  url: 'http://192.168.99.100:9001/sign-up',
+	  data: dataForm,
+	  dataType: 'json',
+	  headers: {"Content-Type": "application/json"}
+	  })
+	  .done((result) => {
+	    console.log(result);
+	  })
+	  .fail((jqXHR, textStatus) => {
+	    console.log(jqXHRObject.responseText);
+	    console.log(jqXHRObject.responseText);
+	    console.log(jqXHRObject.responseText);
+
+	});
+	
+	console.log(dataForm);
+	return false;
+//});
+}
+
+function formToJson (formArray) {
+	var returnArray = {};
+  for (var i = 0; i < formArray.length; i++){
+    returnArray[formArray[i]['name']] = formArray[i]['value'];
+  }
+  return returnArray;
+}

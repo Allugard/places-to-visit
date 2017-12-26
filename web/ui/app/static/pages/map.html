@@ -15,35 +15,37 @@
         
         <div id="btn-wrapper">
            <button class="btn" id="add-marker">Add new Place</button>
-          <!-- <button class="btn" id="rmv-marker">Remove marker</button>-->
+          <button class="btn" id="rmv-marker" onclick="showHints('list-wrapper')">Remove marker</button>
           <button class="btn" id="clean-map">Clean map</button>
           <button class="btn" id="save">Save</button>
         </div>
 		</div>
-
-    
   
 		<div class="content-box">
       <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
    	</div>	
- 
+    
+    <div id="list-wrapper">
+      <div id="list-form">
+        <div class="row">
+          <span id="form-title">List of your places</span>
+          <span id="form-title" onclick="hideHints('list-wrapper')"><i class="fa fa-times" aria-hidden="true"></i></span>
+        </div>
+        <div id="row">
+          <div id="enter-place">            
+          </div>
+          <button class="row" id="delete">Delete item(s) from list</button>
+        </div>
+      </div>  
+    </div>  
+
    
 	</section> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="../js/account.js"></script>
   <script src="../js/map.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&libraries=places&callback=initAutocomplete" async defer></script>
-
- 
-  <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&callback=initMap">-->
-
- <!-- <div id="locationField">
-              <input id="autocomplete" placeholder="Enter your destination" onclick="geolocate()" type="text"></input>
-          </div>
-   
-    -->
-
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDm2Ermyvn2S7vu3hXwhregwzAiWZ3cKTo&libraries=places&callback=initMap" async defer></script>-->
 
 
 

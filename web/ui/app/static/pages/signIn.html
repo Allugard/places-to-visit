@@ -25,7 +25,7 @@
 
 	<section class="login">
 		<span id="span-reg">Sign in</span>
-		<form action="" id="form" onsubmit="return validate(this);">
+		<form  id="form" >
 
 			<label for="login">Login</label>
 			<input type="text" pattern = "^[a-zA-Z]+$" spellcheck="false" name="login" autocomplete="off" required>
@@ -34,15 +34,15 @@
 			<input type="password" name="password" autocomplete="off" required minlength="4" maxlength="8" size="8">
 			
            	<span id="caution"></span>
-			<button type="submit" value="Sign Up" ">Sign In</button>
-			<span id="text">Forgot your password?</span>
+			<button  onclick="sendServer()" value="Sign Up" ">Sign In</button>
+			
 		</form>
 	</section>
 
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/script.js"></script>	
-			
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
+	<script src="js/signIn.js"></script>
+	<script src="js/script.js"></script>		
 </body>
 </html>

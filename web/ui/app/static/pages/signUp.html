@@ -26,7 +26,7 @@
 
 	<section class="registration">
 		<span id="span-reg">Register for <span id="color">free</span></span>
-		<form action="/user/sign-up" method="post" id="form">
+		<form id="form" onsubmit="return validate(this);">
 
 			<label for="name">Name </label>
 			<input type="text" pattern = "^[a-zA-Z]+$" spellcheck="false" name="username" autocomplete="off" required>
@@ -40,7 +40,7 @@
 			<label for="conf-password">Confirm password </label>
 			 <input type="password" name="cpassword" autocomplete="off" required minlength="4" maxlength="8" size="8">
            	<span id="caution"></span>
-			<button type="submit" value="Sign Up" ">Sign Up</button>
+			<button id="submit" value="Sign Up" onclick="sendData()">Sign Up</button>
 		</form>
 	</section>
 
