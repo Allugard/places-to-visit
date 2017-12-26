@@ -11,6 +11,11 @@ To run frontend:
 2. mvn clean install dockerfile:build -pl web
 3. docker run -d --name web --network container:mariadb web:latest
 
+# Integration tests
+
+mvn -Dtest="yo.antihype.team.docker.**" test -pl web
+
+
 
  
 
