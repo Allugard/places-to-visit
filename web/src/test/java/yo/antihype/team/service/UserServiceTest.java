@@ -14,7 +14,7 @@ public class UserServiceTest {
 
     private UserRepository userRepository = mock(UserRepository.class);
 
-    private UserService sut = new UserService(userRepository);
+    private UserService sut = new UserService(userRepository, null);
 
     @Test
     public void shouldCreateUser() {

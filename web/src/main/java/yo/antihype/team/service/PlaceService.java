@@ -17,11 +17,18 @@ public class PlaceService  {
         this.placeRepository = placeRepository;
     }
 
+
+
+    public Place createPlace(Place place) {
+        Place cur = placeRepository.findByLatAndLng(place.getLat(), place.getLng());
+        if (cur == null) {
+            cur = placeRepository.save(place);
+        }
+        return cur;
+    }
+
     public List<Place> findPlacesByUsername(String username) {
         return placeRepository.findPlacesByUsername(username);
     }
 
-    public void delete(Place place) {
-        placeRepository.delete(place);
-    }
 }

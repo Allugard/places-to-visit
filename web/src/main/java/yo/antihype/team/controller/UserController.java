@@ -1,12 +1,15 @@
 package yo.antihype.team.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import yo.antihype.team.dto.EmptyDto;
 import yo.antihype.team.model.Place;
 import yo.antihype.team.service.PlaceService;
 import yo.antihype.team.service.UserService;
@@ -26,13 +29,14 @@ public class UserController {
     }
 
     @PutMapping("user/place")
-    public void addPlace(@RequestBody Place place, @CookieValue("username") String username) {
-        userService.update(username, place);
+    public Place addPlace(@RequestBody Place place, @CookieValue("username") String username) {
+        return userService.addPlace(username, place);
     }
 
-    @PutMapping("user/place")
-    public void deletePlace(@RequestBody Place place, @CookieValue("username") String username) {
-        userService.update(username, place);
+    @DeleteMapping("user/place")
+    public ResponseEntity<EmptyDto> deletePlace(@RequestBody Place place, @CookieValue("username") String username) {
+        userService.deletePlace(username, place);
+        return new ResponseEntity<>(new EmptyDto(), HttpStatus.OK);
     }
 
     @GetMapping("user/places")

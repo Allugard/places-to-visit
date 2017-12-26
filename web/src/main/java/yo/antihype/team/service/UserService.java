@@ -16,10 +16,12 @@ import java.util.Collections;
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
+    private final PlaceService placeService;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PlaceService placeService) {
         this.userRepository = userRepository;
+        this.placeService = placeService;
     }
 
     public User createUser(User user) {
@@ -34,14 +36,23 @@ public class UserService implements UserDetailsService {
         userRepository.deleteAll();
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    @Transactional
+    public Place addPlace(String username, Place place) {
+        Place currrent = placeService.createPlace(place);
+
+        User user = userRepository.findByUsername(username);
+        if (!user.getPlaces().contains(currrent)) {
+            user.getPlaces().add(currrent);
+        }
+
+        userRepository.save(user);
+        return currrent;
     }
 
     @Transactional
-    public void update(String username, Place place) {
-        User user = findByUsername(username);
-        user.getPlaces().add(place);
+    public void deletePlace(String username, Place place) {
+        User user = userRepository.findByUsername(username);
+        user.getPlaces().remove(place);
         userRepository.save(user);
     }
 
