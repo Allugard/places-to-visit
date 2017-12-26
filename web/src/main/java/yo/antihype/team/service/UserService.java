@@ -1,15 +1,18 @@
 package yo.antihype.team.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import yo.antihype.team.exception.DuplicateFieldException;
 import yo.antihype.team.model.Place;
 import yo.antihype.team.model.User;
 import yo.antihype.team.repository.UserRepository;
 
 import javax.transaction.Transactional;
+import javax.validation.ConstraintViolationException;
 import java.util.Collections;
 
 @Service
@@ -25,7 +28,13 @@ public class UserService implements UserDetailsService {
     }
 
     public User createUser(User user) {
-        return userRepository.save(user);
+        User save = null;
+        try {
+            save = userRepository.save(user);
+        } catch (DataIntegrityViolationException e) {
+            throw new DuplicateFieldException(e.getCause().getCause().getMessage());
+        }
+        return save;
     }
 
     public Iterable<User> findAll() {
