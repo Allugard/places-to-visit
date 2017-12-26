@@ -45,8 +45,9 @@ public class UserController {
     }
 
     @DeleteMapping("/users/delete/all")
-    public void deleteAll()  {
+    public ResponseEntity<EmptyDto> deleteAll()  {
         userService.deleteAll();
+        return new ResponseEntity<>(new EmptyDto(), HttpStatus.OK);
     }
 
 }
