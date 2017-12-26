@@ -15,6 +15,7 @@ import yo.antihype.team.model.User;
 import yo.antihype.team.repository.UserRepository;
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.Collections;
 
 @Service
@@ -89,6 +90,18 @@ public class UserService implements UserDetailsService {
     public void deletePlace(String username, Place place) {
         User user = userRepository.findByUsername(username);
         user.getPlaces().remove(place);
+        userRepository.save(user);
+    }
+
+    @Transactional
+    @Retryable(
+            value = CannotCreateTransactionException.class,
+            backoff = @Backoff(delay = 5000,
+                    maxDelay = 100000,
+                    multiplier = 2))
+    public void deletePlaces(String username, Collection<Place> places) {
+        User user = userRepository.findByUsername(username);
+        user.getPlaces().removeAll(places);
         userRepository.save(user);
     }
 

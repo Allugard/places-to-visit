@@ -14,6 +14,7 @@ import yo.antihype.team.model.Place;
 import yo.antihype.team.service.PlaceService;
 import yo.antihype.team.service.UserService;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -42,6 +43,12 @@ public class UserController {
     @GetMapping("user/places")
     public List<Place> getPlaces(@CookieValue("username") String username) {
         return placeService.findPlacesByUsername(username);
+    }
+
+    @DeleteMapping("user/places")
+    public ResponseEntity<EmptyDto> deletePlaces(@RequestBody Collection<Place> places, @CookieValue("username") String username) {
+        userService.deletePlaces(username, places);
+        return new ResponseEntity<>(new EmptyDto(), HttpStatus.OK);
     }
 
     @DeleteMapping("/users/delete/all")
