@@ -44,7 +44,7 @@ public class User {
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "USER_PLACE", joinColumns = @JoinColumn(name = "USER_ID"),
+    @JoinTable(name = "USERS_PLACE", joinColumns = @JoinColumn(name = "USERS_ID"),
             inverseJoinColumns = @JoinColumn(name = "PLACE_ID"))
     private Set<Place> places;
 }
