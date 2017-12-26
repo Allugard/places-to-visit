@@ -45,3 +45,54 @@ databaseChangeLog:
                   constraints:
                     unique: true
 
+  - changeSet:
+      id: 3
+      author: Serhii Vasylenko
+      changes:
+        - addColumn:
+            columns:
+            - column:
+               name: address
+               type: varchar(255)
+            tableName: USERS
+
+  - changeSet:
+      id: 4
+      author: Serhii Vasylenko
+      changes:
+        - createTable:
+            tableName: USER_PLACE
+            columns:
+              - column:
+                  name: USERS_ID
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: USER_PLACE_PK
+              - column:
+                  name: PLACE_ID
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: USERS_PLACE_PK
+
+  - changeSet:
+      id: 5
+      author: Serhii Vasylenko
+      changes:
+        - createTable:
+            tableName: PLACE
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: PLACE_PK
+              - column:
+                  name: LONGITUDE
+                  type: VARCHAR2(255)
+              - column:
+                  name: LATITUDE
+                  type: VARCHAR2(255)

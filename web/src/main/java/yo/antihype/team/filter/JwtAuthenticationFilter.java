@@ -12,6 +12,7 @@ import yo.antihype.team.model.User;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -49,6 +50,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .signWith(SignatureAlgorithm.HS512, SECRET.getBytes())
                 .compact();
 
+        response.addCookie(new Cookie("username", ((org.springframework.security.core.userdetails.User) authResult.getPrincipal()).getUsername()));
         response.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
     }
 }

@@ -5,9 +5,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import yo.antihype.team.model.Place;
 import yo.antihype.team.model.User;
 import yo.antihype.team.repository.UserRepository;
 
+import javax.transaction.Transactional;
 import java.util.Collections;
 
 @Service
@@ -30,6 +32,17 @@ public class UserService implements UserDetailsService {
 
     public void deleteAll() {
         userRepository.deleteAll();
+    }
+
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Transactional
+    public void update(String username, Place place) {
+        User user = findByUsername(username);
+        user.getPlaces().add(place);
+        userRepository.save(user);
     }
 
     @Override
