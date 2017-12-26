@@ -2,17 +2,19 @@ package yo.antihype.team.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.CannotCreateTransactionException;
 import yo.antihype.team.exception.DuplicateFieldException;
 import yo.antihype.team.model.Place;
 import yo.antihype.team.model.User;
 import yo.antihype.team.repository.UserRepository;
 
 import javax.transaction.Transactional;
-import javax.validation.ConstraintViolationException;
 import java.util.Collections;
 
 @Service
@@ -27,8 +29,13 @@ public class UserService implements UserDetailsService {
         this.placeService = placeService;
     }
 
+    @Retryable(
+            value = CannotCreateTransactionException.class,
+            backoff = @Backoff(delay = 5000,
+                    maxDelay = 100000,
+                    multiplier = 2))
     public User createUser(User user) {
-        User save = null;
+        User save;
         try {
             save = userRepository.save(user);
         } catch (DataIntegrityViolationException e) {
@@ -37,15 +44,30 @@ public class UserService implements UserDetailsService {
         return save;
     }
 
+    @Retryable(
+            value = CannotCreateTransactionException.class,
+            backoff = @Backoff(delay = 5000,
+                    maxDelay = 100000,
+                    multiplier = 2))
     public Iterable<User> findAll() {
         return userRepository.findAll();
     }
 
+    @Retryable(
+            value = CannotCreateTransactionException.class,
+            backoff = @Backoff(delay = 5000,
+                    maxDelay = 100000,
+                    multiplier = 2))
     public void deleteAll() {
         userRepository.deleteAll();
     }
 
     @Transactional
+    @Retryable(
+            value = CannotCreateTransactionException.class,
+            backoff = @Backoff(delay = 5000,
+                    maxDelay = 100000,
+                    multiplier = 2))
     public Place addPlace(String username, Place place) {
         Place currrent = placeService.createPlace(place);
 
@@ -59,6 +81,11 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
+    @Retryable(
+            value = CannotCreateTransactionException.class,
+            backoff = @Backoff(delay = 5000,
+                    maxDelay = 100000,
+                    multiplier = 2))
     public void deletePlace(String username, Place place) {
         User user = userRepository.findByUsername(username);
         user.getPlaces().remove(place);

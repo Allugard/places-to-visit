@@ -1,7 +1,10 @@
 package yo.antihype.team.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.CannotCreateTransactionException;
 import yo.antihype.team.model.Place;
 import yo.antihype.team.repository.PlaceRepository;
 
@@ -19,6 +22,11 @@ public class PlaceService  {
 
 
 
+    @Retryable(
+            value = CannotCreateTransactionException.class,
+            backoff = @Backoff(delay = 5000,
+                    maxDelay = 100000,
+                    multiplier = 2))
     public Place createPlace(Place place) {
         Place cur = placeRepository.findByLatAndLng(place.getLat(), place.getLng());
         if (cur == null) {
@@ -27,6 +35,11 @@ public class PlaceService  {
         return cur;
     }
 
+    @Retryable(
+            value = CannotCreateTransactionException.class,
+            backoff = @Backoff(delay = 5000,
+                    maxDelay = 100000,
+                    multiplier = 2))
     public List<Place> findPlacesByUsername(String username) {
         return placeRepository.findPlacesByUsername(username);
     }
