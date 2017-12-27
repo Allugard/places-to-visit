@@ -26,32 +26,23 @@ function validate(form){
 		return true;
 	}
 }
+document.getElementById('submit').addEventListener('click', sendData);
 function sendData(){
-//document.getElementById("submit").addEventListener('click',function (){
 	var dataForm = JSON.stringify(formToJson($("form#form").serializeArray()));
-	console.log(dataForm);
-
-	$.ajax({
-	  method: "PUT",
-	  url: 'http://192.168.99.100:9001/sign-up',
-	  data: dataForm,
-	  dataType: 'json',
-	  headers: {"Content-Type": "application/json"}
-	  })
-	  .done((result) => {
-	    console.log(result);
-	  })
-	  .fail((jqXHR, textStatus) => {
-	    console.log(jqXHRObject.responseText);
-	    console.log(jqXHRObject.responseText);
-	    console.log(jqXHRObject.responseText);
-
-	});
-	
-	console.log(dataForm);
-	return false;
-//});
+    fetch('http://192.168.99.100:9001/sign-up', {
+        method: 'put',
+        type: 'cors',
+        headers: {"Content-Type": "application/json"},
+        body: dataForm
+    }).then(function(response) {
+        if (response.status !== 200) {
+            event.preventDefault();
+            return;
+        }
+      window.location.href="http://localhost:9000/signIn"; 
+    });
 }
+
 
 function formToJson (formArray) {
 	var returnArray = {};

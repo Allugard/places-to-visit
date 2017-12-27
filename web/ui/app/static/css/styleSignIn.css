@@ -78,7 +78,7 @@ label{
 	margin:5px 0;
 	color: white;
 }
-button[type="submit"]{
+button#submit{
 	margin:20px 0 0 0;
 	background-color: #1565c0;
 	height: 35px;

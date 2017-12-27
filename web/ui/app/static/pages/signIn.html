@@ -19,7 +19,8 @@
 			<ul>
 				<li><a href="/">home</a></li>
 				<li><a href="about">about</a></li>
-				<li><a href="info">25 countries</a></li>
+				<li><a href="places">25 countries</a></li>
+				<li><a href="signUp">sign up</a>
 			</ul>
 		</div>
 
@@ -28,13 +29,13 @@
 		<form  id="form" >
 
 			<label for="login">Login</label>
-			<input type="text" pattern = "^[a-zA-Z]+$" spellcheck="false" name="login" autocomplete="off" required>
+			<input type="text" pattern = "^[a-zA-Z]+$" spellcheck="false" name="username" autocomplete="off" required>
 
 			<label for="password">Password </label>
 			<input type="password" name="password" autocomplete="off" required minlength="4" maxlength="8" size="8">
 			
            	<span id="caution"></span>
-			<button  onclick="sendServer()" value="Sign Up" ">Sign In</button>
+			<button id="submit" onclick="event.preventDefault()" value="Sign Up" >Sign In</button>
 			
 		</form>
 	</section>

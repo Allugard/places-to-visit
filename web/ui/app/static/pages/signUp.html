@@ -40,7 +40,7 @@
 			<label for="conf-password">Confirm password </label>
 			 <input type="password" name="cpassword" autocomplete="off" required minlength="4" maxlength="8" size="8">
            	<span id="caution"></span>
-			<button id="submit" value="Sign Up" onclick="sendData()">Sign Up</button>
+			<button id="submit" value="Sign Up" onclick="event.preventDefault()">Sign Up</button>
 		</form>
 	</section>
 

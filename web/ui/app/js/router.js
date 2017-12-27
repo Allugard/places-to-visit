@@ -26,7 +26,7 @@ module.exports = function(app, router){
     router.all('/map', function(req, res) {
         res.sendFile('map.html', { root: './app/static/pages' });
     });
-    router.all('/plces', function(req, res) {
+    router.all('/places', function(req, res) {
         res.sendFile('places.html', { root: './app/static/pages' });
     });
 
