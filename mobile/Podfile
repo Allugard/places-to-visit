@@ -4,5 +4,8 @@ target 'PlacesToVisit' do
   use_frameworks!
   
   pod 'Sourcery'
-
+  pod 'Alamofire'
+  pod 'MaterialComponents'
+  pod 'GoogleMaps'
+  
 end
