@@ -10,4 +10,7 @@ import Foundation
 
 struct Constants {
     static let GoogleMapsKey = "AIzaSyBwVKbXxR74O5rg6BCDpDN-T4_VT0rlSlg"
+    
+    static let DefaultEmail = "a@b.c"
+    static let DefaultPassword = "a"
 }
