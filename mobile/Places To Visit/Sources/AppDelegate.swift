@@ -8,11 +8,17 @@
 
 import UIKit
 import CoreData
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        GMSServices.provideAPIKey(Constants.GoogleMapsKey)
+        return true
+    }
     
     // MARK: - Core Data stack
     lazy var persistentContainer: NSPersistentContainer = {
