@@ -55,8 +55,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .compact();
 
         response.addCookie(new Cookie("username", ((org.springframework.security.core.userdetails.User) authResult.getPrincipal()).getUsername()));
-        response.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
-        response.getWriter().write(EMPTY_JSON);
+        response.getWriter().write(new ObjectMapper().getNodeFactory().objectNode().put("token", token).toString());
     }
 
 }
