@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
     
     private lazy var emailController = MDCTextInputControllerLegacyDefault(textInput: self.emailTextField)
     private lazy var passwordController = MDCTextInputControllerLegacyDefault(textInput: self.passwordTextField)
+    private lazy var presenter = LoginPresenter(view: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,16 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signIn(_ sender: Any) {
+        self.presenter.login(username: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "")
+    }
+}
+
+extension LoginViewController: LoginView {
+    func show(error: String) {
+        self.showAlert(error: error)
+    }
+    
+    func moveToPlaces() {
         let placesController = PlacesViewController()
         self.present(placesController, animated: true, completion: nil)
     }
